@@ -1,0 +1,118 @@
+{
+  "name": "restart-ts-eslint-svelte-server",
+  "displayName": "Restart TS, ESLint, and Svelte Servers",
+  "description": "Add TS, ESLint, and Svelte server restart buttons to your Status Bar and the ability to restart all of them together in the Command Palette",
+  "version": "1.0.0",
+  "publisher": "firatciftci",
+  "author": "Firat Ciftci <ciftcifirat1@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/firatciftci/vscode-restart-ts-eslint-svelte-server#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firatciftci/vscode-restart-ts-eslint-svelte-server"
+  },
+  "bugs": {
+    "url": "https://github.com/firatciftci/vscode-restart-ts-eslint-svelte-server/issues"
+  },
+  "keywords": [
+    "typescript",
+    "eslint",
+    "tsserver",
+    "svelte",
+    "eslint server",
+    "ts server",
+    "svelte server",
+    "linter server",
+    "language server",
+    "language and linter server",
+    "language and linter servers",
+    "restart",
+    "restart tsserver",
+    "restart ts server",
+    "restart eslint server",
+    "restart svelte server",
+    "restart language server",
+    "restart linter server",
+    "restart language and linter server",
+    "restart language and linter servers"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "icon": "res/icon.png",
+  "files": [
+    "LICENSE.md",
+    "dist/*",
+    "res/*"
+  ],
+  "galleryBanner": {
+    "color": "#1e415e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:svelte"
+  ],
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "main": "./dist/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "title": "Restart TS, ESLint, and Svelte Servers",
+        "command": "restart-ts-eslint-svelte-server.softRestartAllCommand"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsdown src/index.ts --external vscode --format cjs",
+    "dev": "nr build --watch",
+    "prepare": "nr update",
+    "update": "vscode-ext-gen --output src/generated/meta.ts --scope restart-ts-eslint-svelte-server",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write --list-different .",
+    "check-types": "tsc --noEmit",
+    "vscode:prepublish": "nr build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce pack --no-dependencies",
+    "package": "vsce package --no-dependencies",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && nr publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.1.0",
+    "@antfu/ni": "^25.0.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@babel/traverse": "^7.28.0",
+    "@babel/types": "^7.28.2",
+    "@reactive-vscode/vueuse": "^0.3.1",
+    "@types/babel__core": "^7.20.5",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.2.0",
+    "@types/vscode": "^1.103.0",
+    "@vscode/vsce": "^3.6.0",
+    "bumpp": "^10.2.2",
+    "eslint": "^9.32.0",
+    "find-up": "^7.0.0",
+    "js-yaml": "^4.1.0",
+    "pnpm": "^10.14.0",
+    "prettier": "^3.6.2",
+    "reactive-vscode": "^0.3.1",
+    "rolldown": "1.0.0-beta.33",
+    "tsdown": "^0.13.3",
+    "typescript": "^5.8.2",
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4",
+    "vscode-ext-gen": "^1.1.0",
+    "yaml-eslint-parser": "^1.3.0"
+  }
+}
