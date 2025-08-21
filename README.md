@@ -8,7 +8,7 @@ This extension also adds a _Restart TS/ESLint/Svelte Server_ command to the comm
 
 ![Button preview](res/buttons.png)
 
-![Command Palette preview](res/commandPalette.png)
+![Command Palette preview](res/command-palette.png)
 
 Inspired by the [Restart Your TS Server](https://github.com/HearTao/restart-your-ts-server) extension, which does the same for touch bars.
 
