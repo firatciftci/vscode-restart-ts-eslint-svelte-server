@@ -102,5 +102,4 @@ export default antfu({
       },
     ],
   },
-  ignores: ["convex/_generated/**/*"],
 });
