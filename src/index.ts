@@ -76,6 +76,7 @@ export function activate(context: ExtensionContext) {
   );
 
   updateStatusBarItemVisibility();
+  // eslint-disable-next-line no-console
   console.log(`Extension ${THIS_EXT_ID} is now active!`);
 }
 
@@ -188,5 +189,6 @@ function updateStatusBarItemVisibility(): void {
 }
 
 export function deactivate() {
+  // eslint-disable-next-line no-console
   console.log(`Extension ${THIS_EXT_ID} is now inactive!`);
 }
