@@ -60,7 +60,7 @@
   "engines": {
     "vscode": "^1.99.1"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "contributes": {
     "commands": [
       {
