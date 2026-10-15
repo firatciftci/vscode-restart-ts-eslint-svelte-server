@@ -42,24 +42,28 @@ export function activate(context: ExtensionContext) {
     "Restart TypeScript, ESLint, and Svelte language servers";
 
   function updateStatusBarItemVisibility(): void {
-    const { activeTextEditor } = window;
+    const languageId = window.activeTextEditor?.document.languageId;
+    const isSupportedLanguage =
+      languageId != null && SUPPORTED_LANGUAGES.has(languageId);
 
-    if (
-      !activeTextEditor?.document ||
-      !SUPPORTED_LANGUAGES.has(activeTextEditor.document.languageId)
-    ) {
-      restartTs.hide();
-      restartEslint.hide();
-      restartSvelte.hide();
-      restartAll.hide();
-    } else {
-      restartTs.show();
-      const eslintExtension = extensions.getExtension(ESLINT_EXTENSION_ID);
-      if (eslintExtension?.isActive) {
-        restartEslint.show();
-        restartSvelte.show();
-        restartAll.show();
+    let isAnyServerAvailable = false;
+    for (const [item, extensionId] of [
+      [restartTs, TYPESCRIPT_EXTENSION_ID],
+      [restartEslint, ESLINT_EXTENSION_ID],
+      [restartSvelte, SVELTE_EXTENSION_ID],
+    ] as const) {
+      if (isSupportedLanguage && extensions.getExtension(extensionId) != null) {
+        item.show();
+        isAnyServerAvailable = true;
+      } else {
+        item.hide();
       }
+    }
+
+    if (isAnyServerAvailable) {
+      restartAll.show();
+    } else {
+      restartAll.hide();
     }
   }
 
@@ -85,6 +89,7 @@ export function activate(context: ExtensionContext) {
       `${THIS_EXT_NAME}.softRestartAllCommand`,
       softRestartAll,
     ),
+    extensions.onDidChange(updateStatusBarItemVisibility),
     window.onDidChangeActiveTextEditor(updateStatusBarItemVisibility),
     window.onDidChangeTextEditorSelection(updateStatusBarItemVisibility),
     workspace.onDidCloseTextDocument(updateStatusBarItemVisibility),
