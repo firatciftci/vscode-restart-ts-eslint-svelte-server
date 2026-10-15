@@ -2,7 +2,7 @@
   "name": "restart-ts-eslint-svelte-server",
   "displayName": "Restart TS, ESLint, and Svelte Servers",
   "description": "Add TS, ESLint, and Svelte server restart buttons to your Status Bar and the ability to restart all of them together in the Command Palette",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "firatciftci",
   "author": "Firat Ciftci <ciftcifirat1@gmail.com>",
   "license": "MIT",
