@@ -6,6 +6,7 @@
   "publisher": "firatciftci",
   "author": "Firat Ciftci <ciftcifirat1@gmail.com>",
   "license": "MIT",
+  "packageManager": "pnpm@12.11.2",
   "homepage": "https://github.com/firatciftci/vscode-restart-ts-eslint-svelte-server#readme",
   "repository": {
     "type": "git",
@@ -80,15 +81,12 @@
     "lint:fix": "eslint --fix .",
     "format": "oxfmt --check",
     "format:fix": "oxfmt",
-    "vscode:prepublish": "nr build",
-    "publish": "nr publish:vscode && nr publish:ovsx",
-    "publish:vscode": "vsce publish --no-dependencies",
-    "publish:ovsx": "ovsx publish --no-dependencies",
+    "vscode:prepublish": "pnpm run build",
     "pack": "vsce pack --no-dependencies",
     "package": "vsce package --no-dependencies",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp && nr publish"
+    "release": "bumpp"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.3.0",
